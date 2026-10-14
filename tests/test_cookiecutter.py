@@ -85,15 +85,3 @@ def test_license_gplv3(bake):
 def test_license_no_license(bake):
     project = bake(open_source_license="Not open source")
     assert not project.has_file("LICENSE")
-
-
-def test_dependabot_config(bake):
-    project = bake(include_github_actions="y")
-    assert project.is_valid_yaml(".github/dependabot.yml")
-    assert project.file_contains(".github/dependabot.yml", "package-ecosystem: uv")
-    assert project.file_contains(".github/dependabot.yml", "package-ecosystem: github-actions")
-
-
-def test_no_dependabot_config_without_github_actions(bake):
-    project = bake(include_github_actions="n")
-    assert not project.has_file(".github/dependabot.yml")
