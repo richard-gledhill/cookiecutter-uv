@@ -40,3 +40,7 @@ a new release`. If you fail to find the button, you could also directly visit
 
 Give your release a title, and add a new tag in the form `*.*.*` where the
 `*`'s are alphanumeric. To finish, press `Publish release`.
+
+## Dependabot
+
+The `.github` directory also contains a `dependabot.yml` that opens monthly update PRs for the `uv` dependencies (including `uv.lock`) and for the GitHub Actions used in the workflows and the `setup-python-env` action. GitHub Actions updates are grouped into a single PR, and new releases are only proposed after a 7-day cooldown.
